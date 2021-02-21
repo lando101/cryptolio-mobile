@@ -1,0 +1,22 @@
+<div
+  fxLayout="row"
+  class="{{ theme }}  px-2 py-2 theme-container d-flex align-items-center my-3 mx-2"
+  fxLayoutGap="15px"
+>
+  <div fxFlex="7">
+    <div class="crypto-logo-container d-flex justify-content-center align-items-center">
+      <img src="https://www.cryptocompare.com{{ coin.CoinInfo.ImageUrl }}" />
+    </div>
+  </div>
+  <div fxFlex="85" fxLayout="row" class="row m-0">
+    <div fxFlex="auto" class="crypto-data-container">
+      <label class="font-weight-bold m-0">{{ coin.CoinInfo.FullName }}</label>
+      <small class="text-muted">MCap {{ coin?.RAW?.USD?.MKTCAP | currency }}</small>
+    </div>
+    <div fxFlex="auto">chart</div>
+    <div fxFlex="20" class="crypto-data-container text-right">
+      <small class="font-weight-bold m-0">{{ coin?.RAW?.USD?.PRICE | currency }}</small>
+      <small class="text-muted">{{ coin?.DISPLAY?.USD?.CHANGEPCT24HOUR / 100 | percent }}</small>
+    </div>
+  </div>
+</div>

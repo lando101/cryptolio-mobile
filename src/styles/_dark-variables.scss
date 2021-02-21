@@ -1,0 +1,25 @@
+// UNIVERSAL VARIABLES
+$primary-color: #ff2150;
+
+// BACKGROUNDS
+$dark-secondary-background: #242424;
+$dark-primary-bg: #121212;
+$dark-body-background: #181818;
+$dark-header-translucent-background: #33333378;
+
+// COLORS
+$dark-mat-muted-icon: #888888;
+$dark-text-color: #747474;
+$dark-primary-font-color: #c5c5c5;
+$dark-alternate-text-color: white;
+$dark-desc-text-color: #848484;
+
+// BORDERS
+$dark-primary-border: #282828;
+$dark-primary-border-dark: darken($primary-border, 15%);
+$dark-border-darkest: #b6b6b64a;
+
+// SHADOWS
+$dark-primary-shadow: #12121280;
+$dark-primary-shadow-light: #0303032e;
+$dark-primary-text-shadow: #9c122e;

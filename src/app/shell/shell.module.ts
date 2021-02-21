@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { I18nModule } from '@app/i18n';
 import { AuthModule } from '@app/auth';
 import { ShellComponent } from './shell.component';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, IonicModule, AuthModule, I18nModule, RouterModule],
+  imports: [CommonModule, TranslateModule, IonicModule, AuthModule, I18nModule, RouterModule, FlexLayoutModule],
   declarations: [ShellComponent],
 })
 export class ShellModule {}

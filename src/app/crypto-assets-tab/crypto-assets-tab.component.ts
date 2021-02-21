@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { PickerController } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
 import { ModalController } from '@ionic/angular';
-import { CryptoInfoModalComponent } from './crypto-info-modal/crypto-info-modal.component';
+import { CryptoInfoModalComponent } from './components/crypto-info-modal/crypto-info-modal.component';
+import { CryptoDataServiceService, CryptoQuery } from '@app/services/crypto-data-service.service';
+import { finalize } from 'rxjs/operators';
+import { Coin } from 'src/models/coins.model';
+import { ThemeServiceService } from '@app/services/theme-service.service';
 
 @Component({
   selector: 'app-crypto-assets-tab',
@@ -11,9 +15,52 @@ import { CryptoInfoModalComponent } from './crypto-info-modal/crypto-info-modal.
 })
 export class CryptoAssetsTabComponent implements OnInit {
   filters: string[] = ['Market Cap Asc', 'Market Cap Desc', 'Top Gains', 'Top Losses', 'Price'];
-  constructor(private pickerController: PickerController, public modalCtrl: ModalController) {}
+  isLoading: boolean;
+  coins: Coin[] = [];
+  filteredCoins: Coin[] = [];
+  theme: string = '';
 
-  ngOnInit(): void {}
+  defaultQuery: CryptoQuery = {
+    coin: 'Bitcoin',
+    symbol: 'BTC',
+    limit: 100,
+    fiat: 'USD',
+  };
+
+  constructor(
+    private pickerController: PickerController,
+    public modalCtrl: ModalController,
+    private cryptoService: CryptoDataServiceService,
+    private themeService: ThemeServiceService
+  ) {}
+
+  ngOnInit(): void {
+    this.getCryptosList();
+    this.themeService.themeTypeBS.subscribe((data: any) => {
+      if (data) {
+        this.theme = data;
+      }
+    });
+  }
+
+  getCryptosList() {
+    this.isLoading = true;
+    this.cryptoService
+      .getCryptoData(this.defaultQuery)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        })
+      )
+      .subscribe((data) => {
+        // console.log(data);
+        data.forEach((element: Coin) => {
+          this.coins.push(element);
+        });
+        console.log(this.coins);
+      });
+  }
+
   async showPicker() {
     let options: PickerOptions = {
       buttons: [
