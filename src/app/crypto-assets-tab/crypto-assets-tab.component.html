@@ -1,11 +1,11 @@
 <ion-header class="ion-no-border {{ theme }} theme-container">
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title class="px-2 text-left">
       <h4 class="font-weight-bold">Digital Assets</h4>
     </ion-title>
   </ion-toolbar>
-  <div class="d-flex overflow-auto border-bottom">
-    <!-- <ion-button size="small" shape="round" color="light"><strong>Order</strong></ion-button> -->
+  <!-- <div color="dark" class="d-flex overflow-auto border-bottom"> -->
+  <ion-toolbar color="{{ theme }}">
     <ion-chip class="mt-0" (click)="showPicker()">
       <ion-label><strong>Market Cap</strong></ion-label>
       <ion-icon name="arrow-up-outline"></ion-icon>
@@ -14,7 +14,10 @@
       <ion-label><strong>24H</strong></ion-label>
       <ion-icon name="time-outline"></ion-icon>
     </ion-chip>
-  </div>
+  </ion-toolbar>
+  <!-- <ion-button size="small" shape="round" color="light"><strong>Order</strong></ion-button> -->
+
+  <!-- </div> -->
   <!-- <ion-toolbar> </ion-toolbar> -->
 </ion-header>
 
@@ -44,7 +47,7 @@
 </ion-content> -->
 <ion-content class="{{ theme }} theme-container">
   <ion-list class="icon-list">
-    <div *ngFor="let coin of coins" (click)="presentModal()">
+    <div *ngFor="let coin of coins" (click)="presentModal(coin)">
       <app-coin-list-item [coin]="coin" [theme]="theme"></app-coin-list-item>
     </div>
   </ion-list>

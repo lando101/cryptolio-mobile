@@ -95,10 +95,13 @@ export class CryptoAssetsTabComponent implements OnInit {
     return options;
   }
 
-  async presentModal() {
+  async presentModal(coin: Coin) {
     const modal = await this.modalCtrl.create({
       component: CryptoInfoModalComponent,
       cssClass: 'my-custom-class',
+      componentProps: {
+        coin: coin,
+      },
       swipeToClose: true,
       presentingElement: await this.modalCtrl.getTop(),
     });
