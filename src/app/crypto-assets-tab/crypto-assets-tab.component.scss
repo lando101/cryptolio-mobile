@@ -1,7 +1,29 @@
+@import "../../styles/index";
+
 ::ng-deep .modal-wrapper {
   height: 95% !important;
   bottom: 0px !important;
   position: absolute !important;
   border-top-right-radius: 20px !important;
   border-top-left-radius: 20px !important;
+}
+
+@mixin theme-mixin($light-theme: true) {
+  $bg-color: $white-background;
+  @if $light-theme != true {
+    $bg-color: $dark-primary-bg;
+  }
+  background-color: $bg-color;
+
+  .icon-list {
+    background-color: $bg-color;
+  }
+}
+
+.theme-container {
+  @include theme-mixin($light-theme: true);
+}
+
+.dark.theme-container {
+  @include theme-mixin($light-theme: false);
 }

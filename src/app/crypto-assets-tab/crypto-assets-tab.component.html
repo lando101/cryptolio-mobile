@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<ion-header class="ion-no-border {{ theme }} theme-container">
   <ion-toolbar>
     <ion-title class="px-2 text-left">
       <h4 class="font-weight-bold">Digital Assets</h4>
@@ -18,12 +18,14 @@
   <!-- <ion-toolbar> </ion-toolbar> -->
 </ion-header>
 
-<ion-content scroll-x="false">
+<!-- <ion-content scroll-x="false">
   <ion-toolbar> Hello </ion-toolbar>
   <ion-list (click)="presentModal()">
-    <ion-item-sliding>
+    <ion-item-sliding *ngFor="let coin of coins">
       <ion-item>
-        <ion-label>Item</ion-label>
+        <slot name="start">
+          <app-coin-list-item [coin]="coin"></app-coin-list-item>
+        </slot>
       </ion-item>
       <ion-item-options side="end">
         <ion-item-option>Favorite</ion-item-option>
@@ -38,5 +40,12 @@
         <ion-item-option>Favorite</ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
+  </ion-list>
+</ion-content> -->
+<ion-content class="{{ theme }} theme-container">
+  <ion-list class="icon-list">
+    <div *ngFor="let coin of coins" (click)="presentModal()">
+      <app-coin-list-item [coin]="coin" [theme]="theme"></app-coin-list-item>
+    </div>
   </ion-list>
 </ion-content>

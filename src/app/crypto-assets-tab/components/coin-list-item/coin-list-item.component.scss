@@ -1,0 +1,42 @@
+@import "../../../../styles/index";
+
+.crypto-logo-container {
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+// .crypto-data-container {
+//   display: inline-grid;
+//   background-color: $dark-body-background;
+// }
+// border-radius: 15px;
+//     box-shadow: 1px 1px 4px 2px #a9a9a930;
+
+@mixin theme-mixin($light-theme: true) {
+  $bg-color: $white-background;
+  $font: $dark-primary-font-color;
+  $border: $primary-border-light;
+  @if $light-theme != true {
+    $bg-color: $dark-body-background;
+    $font: $dark-primary-font-color;
+    $border: $dark-primary-border;
+  }
+  background-color: $bg-color;
+  border-radius: 15px;
+  color: $font;
+  border: 1px solid $border;
+  .crypto-data-container {
+    display: inline-grid;
+    background-color: $bg-color;
+  }
+}
+
+.theme-container {
+  @include theme-mixin($light-theme: true);
+}
+
+.dark.theme-container {
+  @include theme-mixin($light-theme: false);
+}
