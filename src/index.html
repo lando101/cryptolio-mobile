@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>cryptolio mobile app</title>
+    <base href="/" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="theme-color" content="#4e8ef7" />
+  </head>
+  <body>
+    <!-- Google Analytics -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-154805466-1', 'auto');
+    </script>
+    <!-- End Google Analytics -->
+    <!-- Include Cordova script only when needed -->
+    <script>
+      if (/^app/.test(location.host)) {
+        /**
+         * https://github.com/angular/angular/issues/22509
+         * Prevent cordova.js 5.2.4+ routing bug
+         **/
+        window.addEventListener = function () {
+          EventTarget.prototype.addEventListener.apply(this, arguments);
+        };
+        window.removeEventListener = function () {
+          EventTarget.prototype.removeEventListener.apply(this, arguments);
+        };
+        document.addEventListener = function () {
+          EventTarget.prototype.addEventListener.apply(this, arguments);
+        };
+        document.removeEventListener = function () {
+          EventTarget.prototype.removeEventListener.apply(this, arguments);
+        };
+        document.write('<script src="cordova.js"><\/script>');
+      }
+    </script>
+    <app-root></app-root>
+  </body>
+</html>

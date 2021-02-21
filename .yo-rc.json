@@ -1,0 +1,30 @@
+{
+  "generator-ngx-rocket": {
+    "version": "9.2.0",
+    "props": {
+      "location": "path",
+      "strict": false,
+      "skipInstall": false,
+      "skipQuickstart": false,
+      "initGit": true,
+      "usePrefix": true,
+      "appName": "cryptolio mobile app",
+      "target": ["cordova"],
+      "mobile": ["ios", "android"],
+      "ui": "ionic",
+      "layout": "tabs",
+      "auth": true,
+      "lazy": true,
+      "angulartics": true,
+      "languages": ["en-US"],
+      "analyticsProvider": "ga",
+      "googleAnalyticsAccount": "UA-154805466-1",
+      "tools": ["prettier", "hads"],
+      "utility": ["moment"],
+      "projectName": "cryptolio-mobile-app",
+      "packageManager": "npm",
+      "desktop": [],
+      "deploy": "none"
+    }
+  }
+}
