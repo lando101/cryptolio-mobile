@@ -31,7 +31,7 @@
               },
               "src/assets"
             ],
-            "styles": ["src/main.scss"],
+            "styles": ["src/main.scss", "./node_modules/bootstrap/dist/css/bootstrap.css"],
             "scripts": []
           },
           "configurations": {
@@ -95,7 +95,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "scripts": [],
-            "styles": ["src/main.scss"],
+            "styles": ["src/main.scss", "./node_modules/bootstrap/dist/css/bootstrap.css"],
             "assets": [
               {
                 "glob": "**/*.svg",
