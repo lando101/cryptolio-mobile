@@ -10,13 +10,19 @@
   </div>
   <div fxFlex="85" fxLayout="row" class="row m-0">
     <div fxFlex="auto" class="crypto-data-container">
-      <label class="font-weight-bold m-0">{{ coin.CoinInfo.FullName }}</label>
-      <small class="text-muted">MCap {{ coin?.RAW?.USD?.MKTCAP | currency }}</small>
+      <label class="font-weight-bold m-0">{{ coin.CoinInfo.Name }}</label>
+      <small class="text-muted">MCap {{ coin?.DISPLAY?.USD?.MKTCAP }}</small>
     </div>
     <div fxFlex="auto">chart</div>
     <div fxFlex="20" class="crypto-data-container text-right">
       <small class="font-weight-bold m-0">{{ coin?.RAW?.USD?.PRICE | currency }}</small>
-      <small class="text-muted">{{ coin?.DISPLAY?.USD?.CHANGEPCT24HOUR / 100 | percent }}</small>
+      <small
+        [ngClass]="{
+          'text-success': coin?.DISPLAY?.USD?.CHANGEPCT24HOUR > 0,
+          'text-danger': coin?.DISPLAY?.USD?.CHANGEPCT24HOUR < 0
+        }"
+        >{{ coin?.DISPLAY?.USD?.CHANGEPCT24HOUR / 100 | percent: '1.2-2' }}</small
+      >
     </div>
   </div>
 </div>

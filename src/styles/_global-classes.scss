@@ -1,0 +1,7 @@
+@import "dark-variables";
+@import "light-variables";
+
+::ng-deep .cryptolio-text-shadow {
+  color: $primary-color;
+  text-shadow: 1px 0px 15px $dark-primary-text-shadow;
+}
