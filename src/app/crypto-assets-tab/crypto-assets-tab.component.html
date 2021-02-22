@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border {{ theme }} theme-container">
-  <ion-toolbar color="dark">
+  <ion-toolbar color="{{ theme }}">
     <ion-title class="px-2 text-left">
       <h4 class="font-weight-bold">Digital Assets</h4>
     </ion-title>
@@ -45,7 +45,7 @@
     </ion-item-sliding>
   </ion-list>
 </ion-content> -->
-<ion-content class="{{ theme }} theme-container">
+<ion-content color="{{ theme }}" class="{{ theme }} theme-container">
   <ion-list class="icon-list">
     <div *ngFor="let coin of coins" (click)="presentModal(coin)">
       <app-coin-list-item [coin]="coin" [theme]="theme"></app-coin-list-item>

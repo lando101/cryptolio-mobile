@@ -27,7 +27,9 @@ import { CryptoAssetsTabModule } from './crypto-assets-tab/crypto-assets-tab.mod
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot(),
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      animated: true,
+    }),
     CoreModule,
     SharedModule,
     ShellModule,
