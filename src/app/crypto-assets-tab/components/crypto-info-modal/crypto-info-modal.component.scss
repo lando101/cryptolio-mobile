@@ -1,0 +1,27 @@
+@import "../../../../styles/index";
+
+@mixin theme-mixin($light-theme: true) {
+  $bg-color: $white-background;
+  $font: $dark-primary-font-color;
+  $border: $dark-primary-border;
+  @if $light-theme != true {
+    $bg-color: $dark-primary-bg;
+    $font: $dark-primary-font-color;
+    $border: $primary-border-light;
+  }
+  background-color: $bg-color;
+  color: $font;
+
+  img {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.theme-container {
+  @include theme-mixin($light-theme: true);
+}
+
+.dark.theme-container {
+  @include theme-mixin($light-theme: false);
+}

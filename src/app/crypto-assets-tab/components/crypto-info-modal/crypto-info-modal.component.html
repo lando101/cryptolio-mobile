@@ -1,1 +1,46 @@
-<p>crypto-info-modal works!</p>
+<div color="dark" class="{{ theme }} theme-container w-100 h-100 p-3">
+  <ion-header>
+    <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-start">
+        <ion-avatar class="d-flex justify-content-center align-items-center mr-1">
+          <img src="https://www.cryptocompare.com{{ coin.CoinInfo.ImageUrl }}" />
+        </ion-avatar>
+        <div>
+          <h5 class="mb-0">{{ coin?.CoinInfo?.FullName }}</h5>
+          <small class="text-muted font-weight-bold">{{ coin?.CoinInfo?.Name }}</small>
+        </div>
+      </div>
+    </div>
+  </ion-header>
+  <ion-content color="{{ theme }}">
+    <div class="my-2" fxLayout="row" fxLayoutGap="40px">
+      <div fxLayout="auto" *ngIf="coin?.CoinInfo?.Rating?.Weiss?.MarketPerformanceRating" class="text-left d-block">
+        <small class="text-muted">Rating</small>
+        <h5 class="mb-0">{{ coin?.CoinInfo?.Rating?.Weiss?.MarketPerformanceRating }}</h5>
+      </div>
+      <div fxLayout="auto" *ngIf="coin?.CoinInfo?.Rating?.Weiss?.MarketPerformanceRating" class="text-left d-block">
+        <small class="text-muted">24H High</small>
+        <h5 class="mb-0">{{ coin?.RAW?.USD?.PRICE | currency }}</h5>
+      </div>
+    </div>
+    <div class="mt-3">
+      <div class="d-flex">
+        <h1 class="font-weight-bold">{{ coin?.RAW?.USD?.PRICE | currency }}</h1>
+        <div class="mt-2 mx-2">
+          <ion-badge color="success" class="d-flex" *ngIf="coin?.RAW?.USD?.CHANGEPCT24HOUR > 1">
+            <ion-icon name="arrow-up-outline"></ion-icon> {{ coin?.RAW?.USD?.CHANGEPCT24HOUR / 100 | percent }}
+          </ion-badge>
+          <ion-badge color="danger" class="d-flex" *ngIf="coin?.RAW?.USD?.CHANGEPCT24HOUR < 1">
+            <ion-icon name="arrow-down-outline"></ion-icon> {{ coin?.RAW?.USD?.CHANGEPCT24HOUR / 100 | percent }}
+          </ion-badge>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</div>
+
+<ng-template #down let-coin="coin">
+  <ion-badge color="danger" class="d-flex">
+    <ion-icon name="arrow-down-outline"></ion-icon> {{ coin?.RAW?.USD?.CHANGEPCT24HOUR / 100 | percent }}
+  </ion-badge>
+</ng-template>
