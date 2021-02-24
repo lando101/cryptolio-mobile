@@ -7,9 +7,10 @@ import { CryptoAssetsTabComponent } from './crypto-assets-tab.component';
 import { IonicModule } from '@ionic/angular';
 import { CryptoInfoModalComponent } from './components/crypto-info-modal/crypto-info-modal.component';
 import { CoinListItemComponent } from './components/coin-list-item/coin-list-item.component';
+import { CryptoChartComponent } from './components/crypto-chart/crypto-chart.component';
 
 @NgModule({
-  declarations: [CryptoAssetsTabComponent, CryptoInfoModalComponent, CoinListItemComponent],
+  declarations: [CryptoAssetsTabComponent, CryptoInfoModalComponent, CoinListItemComponent, CryptoChartComponent],
   imports: [CommonModule, CryptoAssetsTabRoutingModule, IonicModule, FlexLayoutModule],
 })
 export class CryptoAssetsTabModule {}

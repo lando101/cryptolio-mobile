@@ -1,17 +1,28 @@
 <ion-header class="ion-no-border {{ theme }} theme-container">
   <ion-toolbar color="{{ theme }}">
     <ion-title class="px-2 text-left">
-      <h4 class="font-weight-bold cryptolio-text-shadow">Digital Assets</h4>
+      <h5 class="font-weight-bold cryptolio-text-shadow">Coins</h5>
     </ion-title>
   </ion-toolbar>
   <!-- <div color="dark" class="d-flex overflow-auto border-bottom"> -->
-  <ion-toolbar color="{{ theme }}">
-    <ion-chip class="mt-0" (click)="showPicker()">
+  <ion-toolbar color="theme">
+    <!-- <ion-chip class="mt-0" (click)="showPicker()">
       <ion-label><strong>Market Cap</strong></ion-label>
       <ion-icon name="arrow-up-outline"></ion-icon>
-    </ion-chip>
+    </ion-chip> -->
+    <ion-button size="small" shape="round" color="danger" class="p-0">
+      <!-- <ion-icon name="arrow-up-outline"></ion-icon> -->
+      <ion-label>Market Cap</ion-label>
+    </ion-button>
+    <ion-button size="small" shape="round" color="danger" class="p-0">
+      <ion-label>24H</ion-label>
+      <ion-icon name="time-outline"></ion-icon>
+    </ion-button>
+    <!-- <ion-chip color="danger" (click)="showPicker()">
+      <ion-icon name="arrow-up-outline"></ion-icon>
+      <ion-label>Market Cap</ion-label>
+    </ion-chip> -->
     <ion-chip class="mt-0">
-      <ion-label><strong>24H</strong></ion-label>
       <ion-icon name="time-outline"></ion-icon>
     </ion-chip>
   </ion-toolbar>

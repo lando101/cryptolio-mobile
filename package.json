@@ -55,6 +55,8 @@
     "cordova-plugin-splashscreen": "^6.0.0",
     "cordova-plugin-statusbar": "^2.4.3",
     "cordova-plugin-whitelist": "^1.3.4",
+    "jquery": "^3.5.1",
+    "lightweight-charts": "^3.3.0",
     "moment": "^2.29.1",
     "rxjs": "^6.6.3",
     "tslib": "^2.0.1",
